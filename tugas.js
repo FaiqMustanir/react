@@ -71,3 +71,35 @@ const getData = () => {
   
   fetchData(); 
 
+
+//8
+// Membuat Class
+class Person {
+    constructor(nama, umur) {
+      this.nama = nama;
+      this.umur = umur;
+    }
+  
+    perkenalan() {
+      return `Halo, nama saya ${this.nama} dan saya berumur ${this.umur} tahun.`;
+    }
+  }
+  
+  const ali = new Person("Faiq", 25);
+  console.log(ali.perkenalan());
+  
+  // Inheritance
+  class Guru extends Person {
+    constructor(nama, umur, mataPelajaran) {
+      super(nama, umur);
+      this.mataPelajaran = mataPelajaran;
+    }
+  
+    mengajar() {
+      return `Saya mengajar ${this.mataPelajaran}.`;
+    }
+  }
+  
+  const pakAli = new Guru("Faiq", 25, "Matematika");
+  console.log(pakAli.perkenalan()); 
+  console.log(pakAli.mengajar());   
