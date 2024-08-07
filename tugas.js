@@ -29,3 +29,15 @@ const mahasiswa = { nama1: "Ali", usia: 22, jurusan: "Teknik Informatika" };
 const { nama1, usia, jurusan } = mahasiswa;
 console.log(nama, usia, jurusan); 
 
+
+//5
+const angka1 = [1, 2];
+const angka2 = [3, 4];
+const gabunganAngka = [...angka1, ...angka2];
+console.log(gabunganAngka); 
+
+
+const dataPribadi = { nama: "Faiq", umur: 22 };
+const dataAkademik = { jurusan: "Teknik Informatika", IPK: 4 };
+const gabunganData = { ...dataPribadi, ...dataAkademik };
+console.log(gabunganData); 
