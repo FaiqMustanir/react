@@ -41,3 +41,10 @@ const dataPribadi = { nama: "Faiq", umur: 22 };
 const dataAkademik = { jurusan: "Teknik Informatika", IPK: 4 };
 const gabunganData = { ...dataPribadi, ...dataAkademik };
 console.log(gabunganData); 
+
+
+//6
+const  { tambah, kurang } = require ('./hitung.js');
+console.log(tambah(5, 3)); 
+console.log(kurang(5, 3)); 
+
