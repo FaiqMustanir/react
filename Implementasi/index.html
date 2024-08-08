@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-do List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .todo-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0;
+    }
+    .todo-item button {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>To-do List</h1>
+  <input type="text" id="todo-input" placeholder="Tambah tugas baru" />
+  <button id="add-todo-button">Tambah</button>
+  <ul id="todo-list"></ul>
+
+  <script type="module">
+    import { Todo } from './todo.js';
+
+    const todoList = new Todo();
+
+    const todoInput = document.getElementById('todo-input');
+    const addTodoButton = document.getElementById('add-todo-button');
+    const todoListElement = document.getElementById('todo-list');
+
+    const renderTodoList = () => {
+      todoListElement.innerHTML = '';
+      todoList.todos.forEach((tugas, index) => {
+        const li = document.createElement('li');
+        li.className = 'todo-item';
+        li.innerHTML = `
+          <span>${tugas}</span>
+          <button onclick="deleteTodo(${index})">Hapus</button>
+        `;
+        todoListElement.appendChild(li);
+      });
+    };
+
+    addTodoButton.addEventListener('click', () => {
+      const tugas = todoInput.value.trim();
+      if (tugas) {
+        todoList.tambahTugas(tugas);
+        todoInput.value = '';
+        renderTodoList();
+      }
+    });
+
+    window.deleteTodo = (index) => {
+      todoList.hapusTugas(index);
+      renderTodoList();
+    };
+
+    renderTodoList();
+  </script>
+</body>
+</html>
